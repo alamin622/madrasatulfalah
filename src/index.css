@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 250 247 239;
+  --surface: 255 255 255;
+  --raised: 241 236 223;
+  --ink: 2 44 34;
+  --muted: 63 90 80;
+  --line: 214 205 180;
+  --gold-text: 138 104 30;
+}
+.dark {
+  --bg: 15 20 18;
+  --surface: 22 32 28;
+  --raised: 30 43 38;
+  --ink: 245 240 225;
+  --muted: 178 190 183;
+  --line: 52 70 62;
+  --gold-text: 212 175 105;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body {
+  font-family: 'Hind Siliguri', 'Noto Sans Bengali', Poppins, sans-serif;
+  background: rgb(var(--bg));
+  color: rgb(var(--ink));
+  transition: background-color .4s ease, color .4s ease;
+  -webkit-font-smoothing: antialiased;
+}
+* { transition-property: background-color, border-color, color, fill, stroke; transition-duration: .3s; }
+.motion-safe-all * { transition-property: all; }
+:focus-visible { outline: 2px solid #D4AF69; outline-offset: 3px; border-radius: 6px; }
+
+/* Subtle eight-point-star Islamic geometry */
+.pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23D4AF69' stroke-width='1' opacity='.9'%3E%3Cpath d='M40 6l8.5 20.5L69 18l-8.5 20.5L74 40l-13.5 1.5L69 62l-20.5-8.5L40 74l-8.5-20.5L11 62l8.5-20.5L6 40l13.5-1.5L11 18l20.5 8.5z'/%3E%3Ccircle cx='40' cy='40' r='9'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
+}
+.pattern-soft { opacity: .07; }
+.dark .pattern-soft { opacity: .09; }
+
+.btn-gold {
+  background: linear-gradient(135deg, #E2C37E, #D4AF69 55%, #B8934A);
+  color: #022C22;
+}
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { scrollbar-width: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+/* ---- Premium hover & motion effects ---- */
+.btn-gold { position: relative; overflow: hidden; }
+.btn-gold::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,.55) 50%, transparent 70%);
+  transform: translateX(-120%); transition: transform .8s ease;
+}
+.btn-gold:hover::after { transform: translateX(120%); }
+
+/* nav links: gold colour + animated underline on hover */
+.nav-link { position: relative; }
+.nav-link:hover { color: #D4AF69 !important; }
+.nav-link::after {
+  content: ''; position: absolute; left: 12px; right: 12px; bottom: 4px; height: 2px;
+  background: #D4AF69; transform: scaleX(0); transform-origin: left; transition: transform .35s ease;
+}
+.nav-link:hover::after { transform: scaleX(1); }
+
+/* cards: golden glow + icon tilt on hover */
+[class*="hover:border-gold"] { transition: box-shadow .4s ease, border-color .3s ease, background-color .3s ease; }
+[class*="hover:border-gold"]:hover { box-shadow: 0 20px 44px -16px rgba(212,175,105,.45); }
+[class*="hover:border-gold"] span.grid { transition: transform .45s cubic-bezier(.22,1,.36,1); }
+[class*="hover:border-gold"]:hover span.grid { transform: rotate(-8deg) scale(1.12); }
