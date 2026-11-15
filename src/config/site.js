@@ -8,14 +8,14 @@ export const SITE = {
   year: 2026,
 
   // WhatsApp number in international format, digits only (no + or spaces)
-  whatsappNumber: '8801731537919',
+  whatsappNumber: '8801919531719',
 
   phones: [
-    { label: 'ভবন-১', display: '01731-537919', tel: '+8801731537919' },
+    { label: 'ভবন-১', display: '01731-531719', tel: '+8801731531719' },
     { label: 'ভবন-১', display: '01819-912332', tel: '+8801819912332' },
-    { label: 'অফিস', display: '01919-537919', tel: '+8801919537919' },
+    { label: 'অফিস', display: '01919-531719', tel: '+8801919531719' },
   ],
-  callNumber: '+8801731537919', // used by "সরাসরি কল করুন"
+  callNumber: '+8801919531719', // used by "সরাসরি কল করুন"
 
   facebook: 'https://www.facebook.com/share/1JecSzGAWe/',
   youtube: 'https://www.youtube.com/@alfalahtv86',
